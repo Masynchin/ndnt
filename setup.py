@@ -12,8 +12,8 @@ def get_long_description() -> str:
 
 
 def get_install_requires() -> List[str]:
-    """Get requirements from requirements.txt."""
-    return (CURRENT_DIR / "requirements.txt").read_text().splitlines()
+    """Get duplicated requirements from requirements.txt."""
+    return ["pathspec==0.9.0"]
 
 
 setup(
