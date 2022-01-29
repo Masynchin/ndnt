@@ -26,7 +26,7 @@ class FilesPaths(Paths):
         self.path = path
 
     def __iter__(self) -> Iterable[Path]:
-        return filter(lambda path: path.is_file(), self.path.glob("**/*"))
+        return filter(Path.is_file, self.path.glob("**/*"))
 
 
 class PythonPaths(Paths):
