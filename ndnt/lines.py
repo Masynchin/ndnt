@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from itertools import chain
 from pathlib import Path
 from typing import Iterable
@@ -6,14 +5,11 @@ from typing import Iterable
 from ndnt.line import Line
 
 
-class Lines(ABC):
+class Lines(Iterable[Line]):
     """Lines interface.
 
-    All `Lines` subclasses should behave like `Iterable[Lines]`.
+    `Lines` behaves like `Iterable[Lines]`.
     """
-
-    @abstractmethod
-    def __iter__(self) -> Iterable[Line]: ...
 
 
 class LinesFromText(Lines):

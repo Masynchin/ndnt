@@ -1,4 +1,3 @@
-from abc import ABC, abstractmethod
 from pathlib import Path
 from typing import Iterable
 
@@ -6,14 +5,11 @@ from pathspec import PathSpec
 from pathspec.patterns import GitWildMatchPattern
 
 
-class Paths(ABC):
+class Paths(Iterable[Path]):
     """Paths inteface.
 
-    All `Paths` subclasses should behave like `Iterable[Path]`.
+    `Paths` behaves like `Iterable[Path]`.
     """
-
-    @abstractmethod
-    def __iter__(self) -> Iterable[Path]: ...
 
 
 class FilesPaths(Paths):
