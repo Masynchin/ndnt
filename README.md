@@ -2,26 +2,31 @@
 
 The tool that helps you inspect indents of your files.
 
-# Installation
+## Installation
 
 You can install it via:
+
 ~~~bash
 pip install ndnt
 ~~~
 
-# Usage
+## Usage
 
 Main command is:
+
 ~~~bash
 ndnt <path>
 ~~~
 
 You can get help about its arguments and options with:
+
 ~~~bash
+
 ndnt -h
 ~~~
 
 Examples of usage:
+
 ~~~bash
 # ndnt setup.py
 3.43  | setup.py
