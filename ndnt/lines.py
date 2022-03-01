@@ -29,10 +29,7 @@ class LinesFromFile(Lines):
         self.path = path
 
     def __iter__(self) -> Iterable[Line]:
-        with self.path.open(encoding="u8") as f:
-            lines = f.readlines()
-
-        return map(lambda line: Line(line.rstrip("\n")), lines)
+        yield from LinesFromText(self.path.read_text(encoding="u8"))
 
 
 class NonBlankLines(Lines):
