@@ -1,5 +1,26 @@
+from ndnt.line import Line
 from ndnt.lines import LinesFromText, NonBlankLines
-from ndnt.indent import AverageIndent, RoundedAverageIndent
+from ndnt.indent import AverageIndent, Indent, RoundedAverageIndent
+
+
+def test_indent_spaces():
+    indent = " " * 4
+    assert Indent(Line(f"{indent}1 + 2")).value() == indent
+
+
+def test_indent_tabs():
+    indent = "\t\t"
+    assert Indent(Line(f"{indent}1 + 2")).value() == indent
+
+
+def test_indent_length_spaces():
+    indent = " " * 4
+    assert Indent(Line(f"{indent}1 + 2")).length() == 4
+
+
+def test_indent_length_tabs():
+    indent = "\t\t"
+    assert Indent(Line(f"{indent}1 + 2")).length() == 8
 
 
 def test_average_indent(code_text):
