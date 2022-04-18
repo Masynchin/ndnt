@@ -8,7 +8,7 @@ from ndnt.line import Line
 class Lines(Iterable[Line]):
     """Lines interface.
 
-    `Lines` behaves like `Iterable[Lines]`.
+    `Lines` behaves like `Iterable[Line]`.
     """
 
 
