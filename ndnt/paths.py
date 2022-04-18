@@ -25,17 +25,18 @@ class FilesPaths(Paths):
         return filter(Path.is_file, self.path.glob("**/*"))
 
 
-class PythonPaths(Paths):
-    """Python paths.
+class ExtensionPaths(Paths):
+    """Extension paths.
 
-    Wrap `Paths` origin and return only python files paths.
+    Paths with certain extension.
     """
 
-    def __init__(self, origin: Paths):
+    def __init__(self, origin: Paths, extension: str):
         self.origin = origin
+        self.extension = extension
 
     def __iter__(self) -> Iterable[Path]:
-        return filter(lambda path: path.suffix == ".py", self.origin)
+        return filter(lambda path: path.suffix == self.extension, self.origin)
 
 
 class ExcludeGitignoredPaths(Paths):

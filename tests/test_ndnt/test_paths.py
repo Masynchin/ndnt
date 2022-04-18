@@ -1,5 +1,5 @@
 from pathlib import Path
-from ndnt.paths import ExcludeGitignoredPaths, FilesPaths, PythonPaths
+from ndnt.paths import ExcludeGitignoredPaths, ExtensionPaths, FilesPaths
 
 
 def test_files_paths():
@@ -12,9 +12,9 @@ def test_files_paths():
     }
 
 
-def test_python_paths():
+def test_python_extension_paths():
     folder = Path("tests/fake_folder")
-    python_paths = PythonPaths(FilesPaths(folder))
+    python_paths = ExtensionPaths(FilesPaths(folder), ".py")
     assert set(python_paths) == {folder / "fake.py", folder / "ignored.py"}
 
 

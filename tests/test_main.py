@@ -3,7 +3,7 @@ from io import StringIO
 from pathlib import Path
 
 from ndnt.__main__ import main_with_args
-from ndnt.paths import ExcludeGitignoredPaths, FilesPaths, PythonPaths
+from ndnt.paths import ExcludeGitignoredPaths, ExtensionPaths, FilesPaths
 from ndnt.summary import DirectorySummary, FileSummary
 
 
@@ -12,7 +12,7 @@ def test_main_on_file():
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False)
+        main_with_args(path, no_gitignore=False, extension=".py")
 
     expected = StringIO()
     with redirect_stdout(expected):
@@ -26,11 +26,11 @@ def test_main_on_directory_without_gitignore_option():
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=True)
+        main_with_args(path, no_gitignore=True, extension=".py")
 
     expected = StringIO()
     with redirect_stdout(expected):
-        DirectorySummary(PythonPaths(FilesPaths(path))).print()
+        DirectorySummary(ExtensionPaths(FilesPaths(path), ".py")).print()
 
     assert printed.getvalue() == expected.getvalue()
 
@@ -40,12 +40,15 @@ def test_main_on_directory_with_gitignore_option():
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False)
+        main_with_args(path, no_gitignore=False, extension=".py")
 
     expected = StringIO()
     with redirect_stdout(expected):
         DirectorySummary(
-            PythonPaths(ExcludeGitignoredPaths(path, path / ".gitignore"))
+            ExtensionPaths(
+                ExcludeGitignoredPaths(path, path / ".gitignore"),
+                ".py",
+            )
         ).print()
 
     assert printed.getvalue() == expected.getvalue()
@@ -56,6 +59,6 @@ def test_main_on_non_exists_path():
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False)
+        main_with_args(path, no_gitignore=False, extension=".py")
 
     assert printed.getvalue() == "Something is wrong with provided path.\n"

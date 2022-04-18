@@ -1,7 +1,7 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
-from ndnt.paths import ExcludeGitignoredPaths, FilesPaths, PythonPaths
+from ndnt.paths import ExcludeGitignoredPaths, ExtensionPaths, FilesPaths
 from ndnt.summary import DirectorySummary, FileSummary
 
 
@@ -10,6 +10,12 @@ def setup_parser() -> ArgumentParser:
     parser = ArgumentParser(description="Inspect indents of your files.")
     parser.add_argument(
         "path", type=Path, help="Whether file or directory to get summary of."
+    )
+    parser.add_argument(
+        "-e",
+        "--extension",
+        default=".py",
+        help="Filter files by extension.",
     )
     parser.add_argument(
         "--no-gitignore",
@@ -29,7 +35,7 @@ def main():
     main_with_args(**parse_args().__dict__)
 
 
-def main_with_args(path: Path, no_gitignore: bool):
+def main_with_args(path: Path, no_gitignore: bool, extension: str):
     """Main function.
 
     Choose summary depends on provided arguments and print it.
@@ -39,10 +45,15 @@ def main_with_args(path: Path, no_gitignore: bool):
     if path.is_file():
         summary = FileSummary(path)
     elif path.is_dir() and no_gitignore:
-        summary = DirectorySummary(PythonPaths(FilesPaths(path)))
+        summary = DirectorySummary(
+            ExtensionPaths(FilesPaths(path), extension)
+        )
     elif path.is_dir():
         summary = DirectorySummary(
-            PythonPaths(ExcludeGitignoredPaths(path, path / ".gitignore"))
+            ExtensionPaths(
+                ExcludeGitignoredPaths(path, path / ".gitignore"),
+                extension,
+            )
         )
     else:
         print(f"Something is wrong with provided path.")
