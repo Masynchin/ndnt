@@ -21,7 +21,8 @@ ndnt --help
 
 ### Basic
 
-Here is how you inspect indentation of all current directory programming files:
+Here is how you can inspect indentation of all current directory
+programming files:
 
 ~~~shell
 ndnt
@@ -59,14 +60,14 @@ If you want to get information about files with specific extension
 you can use `-e` (or `--extension`) option:
 
 ~~~shell
-ndnt . -e .py 
+ndnt -e .py 
 ~~~
 
 ### Ignored
 
-By default it includes .gitignore file but you can disable it
-via `--no-gitignore` flag, for example:
+By default `ndnt` reads .gitignore file but you can disable it
+with `--no-gitignore` flag, for example:
 
 ~~~shell
-ndnt . -e .py --no-gitignore
+ndnt -e .py --no-gitignore
 ~~~
