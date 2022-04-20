@@ -1,6 +1,7 @@
 from argparse import ArgumentParser
 from pathlib import Path
 
+from ndnt.extension import AnyProgrammingExtension, ExactExtension, Extension
 from ndnt.paths import ExcludeGitignoredPaths, ExtensionPaths, FilesPaths
 from ndnt.summary import DirectorySummary, FileSummary
 
@@ -14,7 +15,8 @@ def setup_parser() -> ArgumentParser:
     parser.add_argument(
         "-e",
         "--extension",
-        default=".py",
+        type=ExactExtension,
+        default=AnyProgrammingExtension(),
         help="Filter files by extension.",
     )
     parser.add_argument(
@@ -35,7 +37,7 @@ def main():
     main_with_args(**parse_args().__dict__)
 
 
-def main_with_args(path: Path, no_gitignore: bool, extension: str):
+def main_with_args(path: Path, no_gitignore: bool, extension: Extension):
     """Main function.
 
     Choose summary depends on provided arguments and print it.

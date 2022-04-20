@@ -4,6 +4,8 @@ from typing import Iterable
 from pathspec import PathSpec
 from pathspec.patterns import GitWildMatchPattern
 
+from ndnt.extension import Extension
+
 
 class Paths(Iterable[Path]):
     """Paths inteface.
@@ -31,12 +33,12 @@ class ExtensionPaths(Paths):
     Paths with certain extension.
     """
 
-    def __init__(self, origin: Paths, extension: str):
+    def __init__(self, origin: Paths, extension: Extension):
         self.origin = origin
         self.extension = extension
 
     def __iter__(self) -> Iterable[Path]:
-        return filter(lambda path: path.suffix == self.extension, self.origin)
+        return filter(lambda path: self.extension == path.suffix, self.origin)
 
 
 class ExcludeGitignoredPaths(Paths):
