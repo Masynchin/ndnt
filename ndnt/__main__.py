@@ -58,7 +58,7 @@ def main_with_args(path: Path, no_gitignore: bool, extension: Extension):
             )
         )
     else:
-        print(f"Something is wrong with provided path.")
+        print("Something is wrong with provided path.")
         return
 
     summary.print()
