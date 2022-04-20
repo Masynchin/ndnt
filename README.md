@@ -28,6 +28,10 @@ programming files:
 ndnt
 ~~~
 
+By default `ndnt` searches for files of any programming languages.
+It includes many popular languages, but if your language doesn't supported
+please, create issue.
+
 If you want to inspect specific file or directory you can do it like this:
 
 ~~~shell
