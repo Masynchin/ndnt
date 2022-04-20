@@ -6,52 +6,67 @@ The tool that helps you inspect indents of your files.
 
 You can install it via:
 
-~~~bash
+~~~shell
 pip install ndnt
 ~~~
 
 ## Usage
 
-Main command is:
+To get list of all available options run one of following:
 
-~~~bash
-ndnt <path>
-~~~
-
-You can get help about its arguments and options with:
-
-~~~bash
-
+~~~shell
 ndnt -h
+ndnt --help
 ~~~
 
-Examples of usage:
+### Basic
 
-~~~bash
-# ndnt setup.py
+Here is how you inspect indentation of all current directory programming files:
+
+~~~shell
+ndnt
+~~~
+
+If you want to inspect specific file or directory you can do it like this:
+
+~~~shell
+> ndnt setup.py
 3.43  | setup.py
 
-# ndnt .
-5.6   | ndnt\indent.py
-3     | ndnt\line.py
-4.19  | ndnt\lines.py
-5.65  | ndnt\paths.py
-4.47  | ndnt\summary.py
-0.0   | ndnt\__init__.py
-4.41  | ndnt\__main__.py
-3.43  | setup.py
-2     | tests\conftest.py
-3.33  | tests\fake_folder\fake.py
-3.33  | tests\fake_folder\ignored.py
-4     | tests\test_main.py
-2.77  | tests\test_ndnt\test_indent.py
-6.06  | tests\test_ndnt\test_lines.py
-3.56  | tests\test_ndnt\test_paths.py
-3.48  | tests\test_ndnt\test_summary.py
-0.0   | tests\__init__.py
+> ndnt .
+5.64  | cronjobs/cronjobs.py
+0     | extension/popup.js
+5.99  | extension/colors.js
+9.24  | extension/content.js
+0.67  | frontend/babel.config.js
+3.6   | frontend/vue.config.js
+5.16  | frontend/src/index/App.vue
+0.52  | frontend/src/index/main.js
+5.24  | frontend/src/index/views/Home.vue
+4.65  | frontend/src/index/views/Favorites.vue
+6.84  | frontend/src/login/App.vue
+0.2   | frontend/src/login/main.js
+0     | gunicorn.conf.py
+4.99  | app.py
+8.21  | jobs/jobs.py
 -------------
-4.52  | Total
+5.95  | Total
 ~~~
+
+### Exact extension
+
+If you want to get information about files with specific extension
+you can use `-e` (or `--extension`) option:
+
+~~~shell
+ndnt . -e .py 
+~~~
+
+### Ignored
 
 By default it includes .gitignore file but you can disable it
-via `--no-gitignore` flag.
+via `--no-gitignore` flag, for example:
+
+~~~shell
+ndnt . -e .py --no-gitignore
+~~~
