@@ -1,5 +1,8 @@
 # ndnt
 
+[![Test](https://github.com/Masynchin/ndnt/workflows/Test/badge.svg?even=push&branch=main)](https://github.com/Masynchin/ndnt/actions?query=workflow%3ATest+event%3Apush+branch%3Amain)
+[![Coverage](https://codecov.io/gh/Masynchin/ndnt/branch/main/graph/badge.svg?token=D7SNYW4HAQ)](https://codecov.io/gh/Masynchin/ndnt)
+
 The tool that helps you inspect indents of your files.
 
 ## Installation
