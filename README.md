@@ -1,5 +1,6 @@
 # ndnt
 
+[![PyPI](https://img.shields.io/pypi/v/ndnt.svg?label=PyPI)](https://pypi.org/project/ndnt/)
 [![Test](https://github.com/Masynchin/ndnt/workflows/Test/badge.svg?even=push&branch=main)](https://github.com/Masynchin/ndnt/actions?query=workflow%3ATest+event%3Apush+branch%3Amain)
 [![Coverage](https://codecov.io/gh/Masynchin/ndnt/branch/main/graph/badge.svg?token=D7SNYW4HAQ)](https://codecov.io/gh/Masynchin/ndnt)
 
