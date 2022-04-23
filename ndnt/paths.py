@@ -17,7 +17,7 @@ class Paths(Iterable[Path]):
 class FilesPaths(Paths):
     """Files paths.
 
-    All paths that are files from given direcatory.
+    All paths that are files from given directory.
     """
 
     def __init__(self, path: Path):
