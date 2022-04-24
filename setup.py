@@ -25,6 +25,7 @@ setup(
     url="https://github.com/Masynchin/ndnt",
     author="Max Smirnov",
     author_email="masynchin@gmail.com",
+    keywords="cli indent indentation",
     license="MIT",
     packages=find_packages(include=["ndnt"]),
     classifiers=[
