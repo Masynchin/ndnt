@@ -26,6 +26,16 @@ setup(
     author_email="masynchin@gmail.com",
     license="MIT",
     packages=find_packages(include=["ndnt"]),
+    classifiers=[
+        "Development Status :: 5 - Production/Stable",
+        "Environment :: Console",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: MIT License",
+        "Operating System :: OS Independent",
+        "Topic :: Software Development",
+        "Topic :: Software Development :: Libraries :: Python Modules",
+        "Topic :: Utilities",
+    ],
     python_requires=">=3.7",  # I am not sure about it
     install_requires=get_install_requires(),
     entry_points={
