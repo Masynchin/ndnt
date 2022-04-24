@@ -2,17 +2,17 @@ from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
 
-from ndnt.__main__ import main_with_args
+from ndnt.ndnt import Ndnt
 from ndnt.paths import ExcludeGitignoredPaths, ExtensionPaths, FilesPaths
 from ndnt.summary import DirectorySummary, FileSummary
 
 
-def test_main_on_file():
+def test_on_file():
     path = Path("tests/fake_folder/fake.py")
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False, extension=".py")
+        Ndnt(path, ".py", no_gitignore=False).run()
 
     expected = StringIO()
     with redirect_stdout(expected):
@@ -21,12 +21,12 @@ def test_main_on_file():
     assert printed.getvalue() == expected.getvalue()
 
 
-def test_main_on_directory_without_gitignore_option():
+def test_on_directory_without_gitignore_option():
     path = Path("tests/fake_folder")
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=True, extension=".py")
+        Ndnt(path, ".py", no_gitignore=True).run()
 
     expected = StringIO()
     with redirect_stdout(expected):
@@ -35,12 +35,12 @@ def test_main_on_directory_without_gitignore_option():
     assert printed.getvalue() == expected.getvalue()
 
 
-def test_main_on_directory_with_gitignore_option():
+def test_on_directory_with_gitignore_option():
     path = Path("tests/fake_folder")
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False, extension=".py")
+        Ndnt(path, ".py", no_gitignore=False).run()
 
     expected = StringIO()
     with redirect_stdout(expected):
@@ -54,11 +54,11 @@ def test_main_on_directory_with_gitignore_option():
     assert printed.getvalue() == expected.getvalue()
 
 
-def test_main_on_non_exists_path():
+def test_on_non_exists_path():
     path = Path("no/such/path")
 
     printed = StringIO()
     with redirect_stdout(printed):
-        main_with_args(path, no_gitignore=False, extension=".py")
+        Ndnt(path, ".py", no_gitignore=False).run()
 
     assert printed.getvalue() == "Something is wrong with provided path.\n"
