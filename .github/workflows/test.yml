@@ -20,8 +20,6 @@ jobs:
     - name: Install dev requirements
       run: pip install -r requirements-dev.txt
     - name: Run tests and collect coverage
-      run: pytest --cov ndnt
-    - name: Test
       run: pytest --cov ndnt --cov-report=term-missing:skip-covered --cov-report=xml tests
     - name: Upload coverage
       uses: codecov/codecov-action@v3
