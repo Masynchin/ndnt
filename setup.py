@@ -23,6 +23,7 @@ setup(
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
     url="https://github.com/Masynchin/ndnt",
+    author="Max Smirnov",
     author_email="masynchin@gmail.com",
     license="MIT",
     packages=find_packages(include=["ndnt"]),
