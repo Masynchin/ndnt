@@ -18,7 +18,7 @@ def get_install_requires() -> List[str]:
 
 setup(
     name="ndnt",
-    version="1.2.0",
+    version="1.3.0",
     description="Inspect indents of your files.",
     long_description=get_long_description(),
     long_description_content_type="text/markdown",
