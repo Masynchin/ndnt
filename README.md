@@ -62,6 +62,26 @@ If you want to inspect specific file or directory you can do it like this:
 5.95  | Total
 ~~~
 
+### Many paths
+
+You can inspect more than one path at the same time:
+
+~~~shell
+> ndnt ndnt/paths.py tests/test_paths.py
+5.76  | ndnt/paths.py
+4.97  | tests/test_paths.py
+~~~
+
+Ndnt can accept output from other commands,
+like [fd](https://github.com/sharkdp/fd)
+or [rg](https://github.com/BurntSushi/ripgrep):
+
+~~~shell
+> fd paths | xargs ndnt
+5.76  | ndnt/paths.py
+4.97  | tests/test_paths.py
+~~~
+
 ### Exact extension
 
 If you want to get information about files with specific extension
