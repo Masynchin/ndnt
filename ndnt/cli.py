@@ -13,6 +13,7 @@ class Cli(ArgumentParser):
             "paths",
             nargs="*",
             type=Path,
+            default=[Path()],
             help="Whether files or directories to get summary of.",
         )
         super().add_argument(

@@ -8,7 +8,7 @@ from ndnt.extension import AnyProgrammingExtension, ExactExtension
 def test_defaults():
     arguments = CliArguments([], Cli())
 
-    assert arguments.paths() == []
+    assert arguments.paths() == [Path()]
     assert isinstance(arguments.extension(), AnyProgrammingExtension)
     assert arguments.no_gitignore() == False
 
