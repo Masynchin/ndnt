@@ -23,7 +23,7 @@ class Arguments(ABC):
 
 
 class CliArguments(Arguments):
-    """Arguments for CLI."""
+    """Arguments from CLI."""
 
     def __init__(self, args: Sequence[str], cli: ArgumentParser):
         self.args = args
