@@ -32,7 +32,7 @@ class FileSummary(Summary):
 
 
 class FilesSummary(Summary):
-    """Directory summary.
+    """Files summary.
 
     Shows average indent of multiple files.
     """
