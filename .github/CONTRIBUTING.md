@@ -85,7 +85,7 @@ Test your code with:
 Your code not warns any lint warning.
 Coverage stays at 100% after your changes.
 
-#### Changelog update
+### Changelog update
 
 If your changes affects version bump,
 you adds summary of your changes to
