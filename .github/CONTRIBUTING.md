@@ -70,7 +70,7 @@ paradigm while writing new code or rewrite existing one.
 
 ### Code requirements
 
-First, install [dev requirements](requirements-dev.txt).
+First, install [dev requirements](../requirements-dev.txt).
 
 Lint your code with:
 
@@ -89,7 +89,7 @@ Coverage stays at 100% after your changes.
 
 If your changes affects version bump,
 you adds summary of your changes to
-[CHANGELOG](CHANGELOG.md).
+[CHANGELOG](../CHANGELOG.md).
 
 ### Pull Request style
 
