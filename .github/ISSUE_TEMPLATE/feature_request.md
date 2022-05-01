@@ -1,5 +1,6 @@
 ---
 name: Feature request
+about: Suggest an enhancement for Ndnt
 labels: "enhancement"
 ---
 
