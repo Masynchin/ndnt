@@ -1,5 +1,6 @@
 ---
 name: Bug report
+about: Report a possible bug in Ndnt
 labels: "bug"
 ---
 
