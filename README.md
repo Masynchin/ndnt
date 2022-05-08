@@ -34,7 +34,7 @@ ndnt
 
 By default `ndnt` searches for files of any programming languages.
 It includes many popular languages, but if your language doesn't supported
-please, create issue.
+please, [create issue](./.github/CONTRIBUTING.md#creating-issues).
 
 If you want to inspect specific file or directory you can do it like this:
 
@@ -99,3 +99,8 @@ with `--no-gitignore` flag, for example:
 ~~~shell
 ndnt -e .py --no-gitignore
 ~~~
+
+## How to contribute
+
+If you want to contribute to this project,
+please read [CONTRIBUTING guide](./.github/CONTRIBUTING.md).
