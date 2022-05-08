@@ -99,3 +99,8 @@ with `--no-gitignore` flag, for example:
 ~~~shell
 ndnt -e .py --no-gitignore
 ~~~
+
+## How to contribute
+
+If you want to contribute to this project,
+please read [CONTRIBUTING guide](./.github/CONTRIBUTING.md).
