@@ -8,7 +8,8 @@ class Extension(ABC):
     """
 
     @abstractmethod
-    def __eq__(self, other: str) -> bool: ...
+    def __eq__(self, other: str) -> bool:
+        """Compare with file extension."""
 
 
 class AnyProgrammingExtension(Extension):

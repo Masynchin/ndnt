@@ -13,7 +13,8 @@ class Summary(ABC):
     """
 
     @abstractmethod
-    def print(self): ...
+    def print(self):
+        """Print itself."""
 
 
 class FileSummary(Summary):
