@@ -10,7 +10,7 @@ def test_defaults():
 
     assert arguments.paths() == [Path()]
     assert isinstance(arguments.extension(), AnyProgrammingExtension)
-    assert arguments.no_gitignore() == False
+    assert arguments.no_gitignore() is False
 
 
 def test_multiple_paths():
@@ -28,4 +28,4 @@ def test_exact_extension():
 def test_no_gitignore():
     arguments = CliArguments(["--no-gitignore"], Cli())
 
-    assert arguments.no_gitignore() == True
+    assert arguments.no_gitignore() is True
