@@ -1,6 +1,5 @@
 """Extension interface and its implementations."""
 
-
 from abc import ABC, abstractmethod
 
 

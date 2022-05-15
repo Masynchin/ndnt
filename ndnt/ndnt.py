@@ -1,6 +1,5 @@
 """Ndnt related classes."""
 
-
 from pathlib import Path
 
 from ndnt.arguments import Arguments
