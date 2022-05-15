@@ -3,7 +3,7 @@ style:
 
 lint:
 	black ndnt tests setup.py --line-length 79 --check
-	flake8 ndnt
+	flake8 ndnt --ignore=D104,D105,D107,D401
 	flake8 tests --ignore=D
 
 test:
