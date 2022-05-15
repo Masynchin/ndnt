@@ -45,7 +45,9 @@ class Ndnt:
         elif self.path.is_dir():
             summary = DirectorySummary(
                 ExtensionPaths(
-                    ExcludeGitignoredPaths(self.path, self.path / ".gitignore"),
+                    ExcludeGitignoredPaths(
+                        self.path, self.path / ".gitignore"
+                    ),
                     self.extension,
                 )
             )
