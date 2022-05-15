@@ -1,3 +1,5 @@
+"""Arguments interface and its implementations."""
+
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser
 from pathlib import Path

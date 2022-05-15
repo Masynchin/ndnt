@@ -1,3 +1,6 @@
+"""Line class."""
+
+
 class Line(str):
     """Text line.
 

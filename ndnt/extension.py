@@ -1,3 +1,5 @@
+"""Extension interface and its implementations."""
+
 from abc import ABC, abstractmethod
 
 
@@ -8,7 +10,8 @@ class Extension(ABC):
     """
 
     @abstractmethod
-    def __eq__(self, other: str) -> bool: ...
+    def __eq__(self, other: str) -> bool:
+        """Compare with file extension."""
 
 
 class AnyProgrammingExtension(Extension):

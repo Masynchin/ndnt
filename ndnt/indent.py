@@ -1,3 +1,5 @@
+"""Indent related classes."""
+
 from itertools import takewhile
 from statistics import mean, StatisticsError
 
