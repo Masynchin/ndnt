@@ -72,15 +72,17 @@ paradigm while writing new code or rewrite existing one.
 
 First, install [dev requirements](../requirements-dev.txt).
 
-Lint your code with:
+Lint your code with [Makefile](../Makefile) command:
 
-- black (use with `-l 79` option)
-- flake8
+~~~shell
+make lint
+~~~
 
-Test your code with:
+Test your code with [Makefile](../Makefile) command:
 
-- pytest
-- pytest-cov (`--cov ndnt tests`)
+~~~shell
+make test
+~~~
 
 Your code not warns any lint warning.
 Coverage stays at 100% after your changes.
