@@ -29,6 +29,7 @@ class FileSummary(Summary):
         self.path = path
 
     def print(self):
+        """Print itself."""
         lines = NonBlankLines(LinesFromFile(self.path))
         indent = RoundedAverageIndent(AverageIndent(lines)).value()
         print(f"{indent:<5} |", self.path)
@@ -44,6 +45,7 @@ class FilesSummary(Summary):
         self.paths = paths
 
     def print(self):
+        """Print itself."""
         total_lines = NonBlankLines(LinesFromFiles(self.paths))
         total_indent = RoundedAverageIndent(AverageIndent(total_lines)).value()
         print(f"{total_indent:<5} | Total")
@@ -60,6 +62,7 @@ class DirectorySummary(Summary):
         self.paths = paths
 
     def print(self):
+        """Print itself."""
         for file in self.paths:
             FileSummary(file).print()
 
