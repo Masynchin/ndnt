@@ -1,3 +1,6 @@
+"""Paths interface and its implementations."""
+
+
 from pathlib import Path
 from typing import Iterable
 

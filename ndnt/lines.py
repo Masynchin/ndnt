@@ -1,3 +1,6 @@
+"""Lines interface and its implementations."""
+
+
 from itertools import chain
 from pathlib import Path
 from typing import Iterable

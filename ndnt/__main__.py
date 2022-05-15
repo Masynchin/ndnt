@@ -1,3 +1,5 @@
+"""CLI entry module."""
+
 import sys
 from typing import Sequence
 
