@@ -1,4 +1,3 @@
-from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
 
@@ -10,8 +9,7 @@ def test_file_summary():
     summary = FileSummary(path)
 
     printed = StringIO()
-    with redirect_stdout(printed):
-        summary.print()
+    summary.print(printed)
 
     printed = printed.getvalue()
     assert str(path) in printed
@@ -23,8 +21,7 @@ def test_files_summary():
     summary = FilesSummary([folder / "fake.py", folder / "ignored.py"])
 
     printed = StringIO()
-    with redirect_stdout(printed):
-        summary.print()
+    summary.print(printed)
 
     printed = printed.getvalue()
     assert "3.33" in printed
@@ -35,8 +32,7 @@ def test_directory_summary():
     summary = DirectorySummary([folder / "fake.py", folder / "ignored.py"])
 
     printed = StringIO()
-    with redirect_stdout(printed):
-        summary.print()
+    summary.print(printed)
 
     printed = printed.getvalue()
     assert str(folder / "fake.py") in printed

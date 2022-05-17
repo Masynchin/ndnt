@@ -2,6 +2,7 @@
 
 from abc import ABC, abstractmethod
 from pathlib import Path
+from typing import TextIO
 
 from ndnt.indent import AverageIndent, RoundedAverageIndent
 from ndnt.lines import LinesFromFile, LinesFromFiles, NonBlankLines
@@ -15,7 +16,7 @@ class Summary(ABC):
     """
 
     @abstractmethod
-    def print(self):
+    def print(self, out: TextIO):
         """Print itself."""
 
 
@@ -28,11 +29,11 @@ class FileSummary(Summary):
     def __init__(self, path: Path):
         self.path = path
 
-    def print(self):
+    def print(self, out: TextIO):
         """Print itself."""
         lines = NonBlankLines(LinesFromFile(self.path))
         indent = RoundedAverageIndent(AverageIndent(lines)).value()
-        print(f"{indent:<5} |", self.path)
+        out.write(f"{indent:<5} | {self.path}\n")
 
 
 class FilesSummary(Summary):
@@ -44,11 +45,11 @@ class FilesSummary(Summary):
     def __init__(self, paths: Paths):
         self.paths = paths
 
-    def print(self):
+    def print(self, out: TextIO):
         """Print itself."""
         total_lines = NonBlankLines(LinesFromFiles(self.paths))
         total_indent = RoundedAverageIndent(AverageIndent(total_lines)).value()
-        print(f"{total_indent:<5} | Total")
+        out.write(f"{total_indent:<5} | Total\n")
 
 
 class DirectorySummary(Summary):
@@ -61,10 +62,10 @@ class DirectorySummary(Summary):
     def __init__(self, paths: Paths):
         self.paths = paths
 
-    def print(self):
+    def print(self, out: TextIO):
         """Print itself."""
         for file in self.paths:
-            FileSummary(file).print()
+            FileSummary(file).print(out)
 
-        print("-" * 13)
-        FilesSummary(self.paths).print()
+        out.write("-" * 13 + "\n")
+        FilesSummary(self.paths).print(out)

@@ -15,8 +15,7 @@ def test_on_file():
         Ndnt(path, ".py", no_gitignore=False).run()
 
     expected = StringIO()
-    with redirect_stdout(expected):
-        FileSummary(path).print()
+    FileSummary(path).print(expected)
 
     assert printed.getvalue() == expected.getvalue()
 
@@ -29,8 +28,7 @@ def test_on_directory_without_gitignore_option():
         Ndnt(path, ".py", no_gitignore=True).run()
 
     expected = StringIO()
-    with redirect_stdout(expected):
-        DirectorySummary(ExtensionPaths(FilesPaths(path), ".py")).print()
+    DirectorySummary(ExtensionPaths(FilesPaths(path), ".py")).print(expected)
 
     assert printed.getvalue() == expected.getvalue()
 
@@ -43,13 +41,12 @@ def test_on_directory_with_gitignore_option():
         Ndnt(path, ".py", no_gitignore=False).run()
 
     expected = StringIO()
-    with redirect_stdout(expected):
-        DirectorySummary(
-            ExtensionPaths(
-                ExcludeGitignoredPaths(path, path / ".gitignore"),
-                ".py",
-            )
-        ).print()
+    DirectorySummary(
+        ExtensionPaths(
+            ExcludeGitignoredPaths(path, path / ".gitignore"),
+            ".py",
+        )
+    ).print(expected)
 
     assert printed.getvalue() == expected.getvalue()
 

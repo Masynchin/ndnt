@@ -40,8 +40,7 @@ def test_on_single_path():
         Ndnts(arguments).run()
 
     expected = StringIO()
-    with redirect_stdout(expected):
-        FileSummary(path).print()
+    FileSummary(path).print(expected)
 
     assert printed.getvalue() == expected.getvalue()
 
@@ -62,8 +61,7 @@ def test_on_multiple_paths():
         Ndnts(arguments).run()
 
     expected = StringIO()
-    with redirect_stdout(expected):
-        for path in paths:
-            FileSummary(path).print()
+    for path in paths:
+        FileSummary(path).print(expected)
 
     assert printed.getvalue() == expected.getvalue()
