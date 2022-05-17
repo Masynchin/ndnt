@@ -5,6 +5,7 @@ from pathlib import Path
 from typing import Iterable
 
 from ndnt.line import Line
+from ndnt.paths import Paths
 
 
 class Lines(Iterable[Line]):
@@ -57,7 +58,7 @@ class CombinedLines(Lines):
 class LinesFromFiles(Lines):
     """Lines from multiple files as one `Lines`."""
 
-    def __init__(self, paths: Iterable[Path]):
+    def __init__(self, paths: Paths):
         self.paths = paths
 
     def __iter__(self) -> Iterable[Line]:
