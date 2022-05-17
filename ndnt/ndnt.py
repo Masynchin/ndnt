@@ -1,6 +1,7 @@
 """Ndnt related classes."""
 
 from pathlib import Path
+import sys
 
 from ndnt.arguments import Arguments
 from ndnt.extension import Extension
@@ -57,4 +58,4 @@ class Ndnt:
             print("Something is wrong with provided path.")
             return
 
-        summary.print()
+        summary.print(sys.stdout)
