@@ -2,10 +2,10 @@
 
 from abc import ABC, abstractmethod
 from pathlib import Path
-from typing import Iterable
 
 from ndnt.indent import AverageIndent, RoundedAverageIndent
 from ndnt.lines import LinesFromFile, LinesFromFiles, NonBlankLines
+from ndnt.paths import Paths
 
 
 class Summary(ABC):
@@ -41,7 +41,7 @@ class FilesSummary(Summary):
     Shows average indent of multiple files.
     """
 
-    def __init__(self, paths: Iterable[Path]):
+    def __init__(self, paths: Paths):
         self.paths = paths
 
     def print(self):
@@ -58,7 +58,7 @@ class DirectorySummary(Summary):
     average indent of all files combined.
     """
 
-    def __init__(self, paths: Iterable[Path]):
+    def __init__(self, paths: Paths):
         self.paths = paths
 
     def print(self):

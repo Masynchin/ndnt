@@ -1,25 +1,23 @@
 from contextlib import redirect_stdout
 from io import StringIO
 from pathlib import Path
-from typing import Iterable
 
 from ndnt.arguments import Arguments
 from ndnt.extension import Extension
 from ndnt.ndnt import Ndnts
+from ndnt.paths import Paths
 from ndnt.summary import FileSummary
 
 
 class FakeArguments(Arguments):
     """Fake class to mock arguments."""
 
-    def __init__(
-        self, paths: Iterable[Path], extension: Extension, no_gitignore: bool
-    ):
+    def __init__(self, paths: Paths, extension: Extension, no_gitignore: bool):
         self._paths = paths
         self._extension = extension
         self._no_gitignore = no_gitignore
 
-    def paths(self) -> Iterable[Path]:
+    def paths(self) -> Paths:
         return self._paths
 
     def extension(self) -> Extension:

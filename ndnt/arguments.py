@@ -2,17 +2,17 @@
 
 from abc import ABC, abstractmethod
 from argparse import ArgumentParser
-from pathlib import Path
-from typing import Iterable, Sequence
+from typing import Sequence
 
 from ndnt.extension import Extension
+from ndnt.paths import Paths
 
 
 class Arguments(ABC):
     """Ndnt arguments."""
 
     @abstractmethod
-    def paths(self) -> Iterable[Path]:
+    def paths(self) -> Paths:
         """Path to inspect."""
 
     @abstractmethod
@@ -31,7 +31,7 @@ class CliArguments(Arguments):
         self.args = args
         self.cli = cli
 
-    def paths(self) -> Iterable[Path]:
+    def paths(self) -> Paths:
         """Path for CLI."""
         return self.cli.parse_args(self.args).paths
 
